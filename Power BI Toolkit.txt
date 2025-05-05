@@ -1,0 +1,23 @@
+1. Get Data - connect to data
+2. PQE - Transform Tab, Report View, Table View, Model View
+3. Bar Chart, Pie Chart, Line Chart
+4. Types of Filters - Drill down/up, Edit Interactions between charts
+5. Customise themes
+
+-----------------------------
+
+Power Query Editor - 
+
+- Use to clean and transform data
+- Applied Steps - Keeps track of all the transformation steps applied to the data, data will pass through the steps on every refresh, keep them minimal to optimise the data refresh
+- cltr + z does not work on PQE, modify the steps using Applied steps dialogue box
+- Use first row as header
+- Remove rows 
+- Unpivot columns
+- Advance Editor - M-code
+- Column Profiling - View Tab > Column Profile - column statistics
+- Append Queries - Union of Tables
+- Connecting to Folder - combine and Transform - Automatically append all the files in the folder into a single table. Column headers for all the tables must be same
+- Transform Tab vs Add Column Tab
+- Text, Number and Date Transformations
+- 
