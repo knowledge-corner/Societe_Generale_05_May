@@ -1,0 +1,16 @@
+EmployeeID,ProjectID,Role,HoursWorked
+E001,P101,Analyst,120
+E001,P103,Project Lead,90
+E002,P102,Developer,150
+E002,P104,Data Scientist,100
+E003,P101,Marketing Manager,80
+E003,P105,Consultant,110
+E004,P103,HR Specialist,70
+E004,P104,Trainer,95
+E005,P101,Operations Head,130
+E005,P105,Process Engineer,105
+E001,P104,Finance Auditor,60
+E002,P105,IT Consultant,85
+E003,P102,UX Designer,125
+E004,P105,HR Consultant,75
+E005,P103,Project Coordinator,95

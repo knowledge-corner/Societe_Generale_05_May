@@ -1,10 +1,14 @@
+Report View
+-------------------------------------------------
 1. Get Data - connect to data
 2. PQE - Transform Tab, Report View, Table View, Model View
 3. Bar Chart, Pie Chart, Line Chart
-4. Types of Filters - Drill down/up, Edit Interactions between charts
+4. Types of Filters - Drill down/up, Edit Interactions between charts, Filter Pane (filter on visual, page, all pages), Slicer, Drill through filter 
+
 5. Customise themes
 
------------------------------
+
+-------------------------------------------------
 
 Power Query Editor - 
 
@@ -20,4 +24,209 @@ Power Query Editor -
 - Connecting to Folder - combine and Transform - Automatically append all the files in the folder into a single table. Column headers for all the tables must be same
 - Transform Tab vs Add Column Tab
 - Text, Number and Date Transformations
-- 
+- Enable load  - loads the query to power bi desktop
+- include in report refresh - checks for updates in the data
+
+- Append Queries - Same data or same column headers
+
+- Merge Queries - Used when data about same entity is present in two tables
+
+
+Invoices detail - 
+
+Invoice# | Invoice Date | Vendor ID |  Bill Amount 
+
+
+Vendor Details - 
+
+Vendor ID | Vendor Name | GST No. | Register state | Contact …..
+
+
+Types of Merge - 
+
+1. Inner - Returns only the common rows wrt to reference column
+2. Left  - 
+3. Right - 
+4. Full Outer - Returns all the rows and where the reference is not matching it will null
+
+Vendor ID | Vendor Name | GST No. | Register state | Contact | Invoice# | Invoice Date | Vendor ID |  Bill Amount
+
+-------------------------------------------------------------------
+
+Model View
+
+Data Modelling - allows us to connect table by relationships, and thus we can display data from different related table on a chart
+
+- Relationships
+- Cardinality
+- Cross filter
+
+Example on on-to-one relationship - 
+
+Employee & Workstation Assignment
+- Table 1: Employees → (Employee ID, Name, Department)
+- Table 2: Workstations → (Workstation ID, Employee ID, Location)
+
+
+
+-------------------------------------------------------------------
+
+Table View 
+- Column Tools - currency, %, decimals value, summarization, data groups
+
+
+-------------------------------------------------------------------
+
+DAX - Data Analysis Expression - Formula language in Power BI Desktop
+
+Categorial Data or Dimension - Product, Date, Customer Name  - adds a filter or granularity to the measure
+
+Measure - a metric, always aggregated Continuous (eg. temp, sales, profit etc) and Discrete (eg. Hot/cold, Profit/Loss, Heavy/Light)
+
+New Measure - aggregate level calculation
+	- Generate a formula evaluated on the visual
+
+New Column - row level calculation
+	- Generates new column with new data 
+	- increasing the size of the dataset/ data model
+
+
+
+-------------------------------------------------------------------------------
+
+Examples - 
+
+Ex. Example on cross filter direction wrt to slicer
+
+--------------------------------------------------------------------------------------
+Ex. Calculate days required to ship the product and check if it is in-time or late delivery. Display the count of the number of in-time and late deliveries. Display as % of grand total
+-- Create a column
+-- Same day - 0
+-- First - <= 2
+-- Second - <= 4
+-- Standard - <= 6
+
+- Creating new column
+- Datediff(), IF(), creating a variable using VAR and RETURN, && and || operators
+
+--------------------------------------------------------------------------------------
+
+Ex. Country Performance - A performing country is identified as total profits greater than 10,000. Highlight performing and non-performing countries on a map.
+- Create a measure
+- Conditional formatting on map
+- Apply what-if parameter to dynamically change the Threshold
+
+Ex. Count number of performing and non-performing countries
+-- Create summarise Table
+
+Ex. Create a field which calculates Target Profit Margin as 10% of Sales. Using a gauge chart and a slicer display sub-categories and their target status. Convert gauge chart to bullet chart. Use red-amber-green color coding to highlight.
+
+Ex. calculate the total sales from customers younger than 45 years.
+
+Sales_Under45 = 
+CALCULATE(
+    SUM(Orders[Sales]),
+    FILTER(
+        Customers,
+        Customers[Age] < 45
+    )
+)
+
+Ex. Examples on Date Table
+ - Create Date Table
+ - Create FY- year, month, quater
+ - sort by month_no
+ - Active - Inactive relations and Userelationship function
+
+Ex. Number of orders shipped by first class in 2020 – use relationship
+
+--------------------------------------------------------------------------------------
+
+Ex. Calculate MRP as Price * Quantity - 
+Sol - Total Amount = Orders[Quantity] * RELATED(Products[Price])
+- PQE vs Column vs Measure
+
+- Use PQE if the column is static and can be computed before loading.
+- Use DAX if the column needs to be dynamic and interact with filters/slicers.
+
+
+Ex. Top N filter from filters pane and Display top 3 countries by sales from each Market.
+
+Ex. KPI, Decomposition Tree, 
+
+Ex. Bookmarks - Save the filter and selections
+
+Ex. Page Navigator
+
+
+Ex. Row Level Security
+
+What is RLS?
+Row-Level Security (RLS) restricts data access for users based on filters defined in Power BI. It ensures that users only see the rows of data relevant to them.
+
+Why Use RLS?
+To protect sensitive or confidential data
+To avoid creating separate reports for different users
+To manage access efficiently and centrally
+
+
+Ex. Workspace Roles
+
+
+
+
+
+
+
+Goal - Multiply Quantity(Orders) and Price(Products)
+
+
+- Tables are connected by relationship - create a measure and aggregate the two columns.  - Not Possible
+- PQE - Add column - are limited to columns from same table, for column from different merge is required.  
+- Add a column using DAX
+
+
+- Adds a new column to data
+- Processed when data is loaded, not dynamic
+
+- Difference between Add column in PQE vs Add column in DAX - 
+	- Perform row level calculation from related table in the data model. 
+
+
+- Perform a row level calculation and then aggregate it on the visual - SumX(), AverageX(), MinX()… 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

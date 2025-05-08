@@ -1,0 +1,16 @@
+EmployeeID,Name,Department,Project ID
+E001,John Doe,Finance,P101
+E001,John Doe,Finance,P103
+E002,Jane Smith,IT,P102
+E002,Jane Smith,IT,P104
+E003,Michael Johnson,Marketing,P101
+E003,Michael Johnson,Marketing,P105
+E004,Sarah Brown,HR,P103
+E004,Sarah Brown,HR,P104
+E005,David Wilson,Operations,P101
+E005,David Wilson,Operations,P105
+E001,John Doe,Finance,P104
+E002,Jane Smith,IT,P105
+E003,Michael Johnson,Marketing,P102
+E004,Sarah Brown,HR,P105
+E005,David Wilson,Operations,P103
